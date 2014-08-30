@@ -1,0 +1,33 @@
+{
+    "name": "mfn/util-simpleorderedmap",
+    "description": "Ordered map accepting arbitrary keys",
+    "type": "ibrary",
+    "keywords": [
+        "utility",
+        "map"
+    ],
+    "homepage": "http://github.com/mfn/php-util-simpleorderedmap",
+    "authors": [
+        {
+            "name": "Markus Fischer",
+            "email": "markus@fischer.name",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/mfn/php-util-simpleorderedmap/issues"
+    },
+    "license": "MIT",
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mfn\\Util\\": "lib/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.2.*",
+        "phing/phing": "2.8.2"
+    }
+}
