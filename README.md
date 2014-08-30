@@ -1,5 +1,7 @@
 # Ordered map accepting arbitrary keys
 
+Master: [![Build Status](https://travis-ci.org/mfn/php-util-simpleorderedmap.svg?branch=master)](https://travis-ci.org/mfn/php-util-simpleorderedmap)
+
 Homepage: https://github.com/mfn/php-util-simpleorderedmap
 
 ## Basic usage:
