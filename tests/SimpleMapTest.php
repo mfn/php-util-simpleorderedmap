@@ -84,12 +84,13 @@ class SimpleMapTest extends \PHPUnit_Framework_TestCase
     $this->assertSame(false, $this->map->isEmpty());
   }
 
-  public function testObjectIsNotObject() {
+  public function testAddMultipleObjects() {
     $obj1 = new \stdClass();
     $obj2 = new \stdClass();
-    $this->map->add($obj1, 'obj');
-    # TODO: why does assertSame([$obj], $this->map->keys()) not work?
-    $this->assertSame(false, [$obj2] === $this->map->keys());
+    $this->map->add($obj1, $obj2);
+    $this->map->add($obj2, NULL);
+    $this->assertSame([$obj1, $obj2], $this->map->keys());
+    $this->assertSame([$obj2, NULL], $this->map->values());
   }
 
   public function testAddObjectKeyVal() {
