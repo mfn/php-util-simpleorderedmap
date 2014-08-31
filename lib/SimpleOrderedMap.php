@@ -62,7 +62,8 @@ class SimpleOrderedMap {
    */
   static public function fromArrays(array $keys, array $values) {
     if (count($keys) !== count($values)) {
-      throw new SimpleOrderedMapException('Length of keys and values does not match');
+      throw new SimpleOrderedMapException(
+        'Length of keys and values does not match');
     }
     $map = new SimpleOrderedMap();
     $map->keys = array_values($keys);
