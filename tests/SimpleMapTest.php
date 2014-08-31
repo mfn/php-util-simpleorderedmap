@@ -241,7 +241,7 @@ class SimpleMapTest extends \PHPUnit_Framework_TestCase
     $obj = new \stdClass();
     $this->map->set($obj, 'obj1');
     $this->map->set($obj, 'obj2');
-    $this->assertSame(true, [$obj] === $this->map->keys());
+    $this->assertSame([$obj], $this->map->keys());
     $this->assertSame(['obj2'], $this->map->values());
     $this->assertSame(1, $this->map->count());
   }
