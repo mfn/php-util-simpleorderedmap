@@ -1,4 +1,4 @@
-# Ordered map accepting arbitrary keys [ ![Travis Build Status](https://travis-ci.org/mfn/php-util-simpleorderedmap.svg?branch=master)](https://travis-ci.org/mfn/php-util-simpleorderedmap) [ ![Codeship Status for mfn/php-util-simpleorderedmap](https://www.codeship.io/projects/6b1ac860-126f-0132-a2a8-4ec5f4cbfced/status?branch=master)](https://www.codeship.io/projects/33214)
+# Ordered map accepting arbitrary keys [ ![Travis Build Status](https://travis-ci.org/mfn/php-util-simpleorderedmap.svg?branch=master)](https://travis-ci.org/mfn/php-util-simpleorderedmap) ![Codeship Status for mfn/php-util-simpleorderedmap](https://www.codeship.io/projects/6b1ac860-126f-0132-a2a8-4ec5f4cbfced/status?branch=master)
 
 Homepage: https://github.com/mfn/php-util-simpleorderedmap
 
