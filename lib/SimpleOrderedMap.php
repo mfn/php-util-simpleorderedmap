@@ -22,7 +22,8 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-namespace Mfn\Util;
+namespace Mfn\Util\Map;
+
 /**
  * Provide a key/value mapping support almost any data structure as keys.
  *
@@ -69,22 +70,6 @@ class SimpleOrderedMap {
     $map->keys = array_values($keys);
     $map->values = array_values($values);
     return $map;
-  }
-
-  /**
-   * Adds a new key/value pair at the list of keys, error on duplicate key.
-   * @param mixed $key
-   * @param mixed $value
-   * @throws SimpleOrderedMapException
-   * @return $this
-   */
-  public function add($key, $value) {
-    if ($this->exists($key)) {
-      throw new SimpleOrderedMapException('Key already exists');
-    }
-    $this->keys[] = $key;
-    $this->values[] = $value;
-    return $this;
   }
 
   /**
@@ -136,14 +121,6 @@ class SimpleOrderedMap {
   }
 
   /**
-   * @param $key
-   * @return bool
-   */
-  public function exists($key) {
-    return in_array($key, $this->keys, true);
-  }
-
-  /**
    * @param integer $index
    * @return bool
    */
@@ -174,14 +151,6 @@ class SimpleOrderedMap {
       throw new SimpleOrderedMapException("No key at index $index found");
     }
     return $this->keys[$index];
-  }
-
-  public function getKeyPosition($key) {
-    $index = array_search($key, $this->keys, true);
-    if (false === $index) {
-      throw new SimpleOrderedMapException('Key does not exist');
-    }
-    return $index;
   }
 
   /**
@@ -225,6 +194,38 @@ class SimpleOrderedMap {
       return $this;
     }
     return $this->add($key, $value);
+  }
+
+  /**
+   * @param $key
+   * @return bool
+   */
+  public function exists($key) {
+    return in_array($key, $this->keys, true);
+  }
+
+  public function getKeyPosition($key) {
+    $index = array_search($key, $this->keys, true);
+    if (false === $index) {
+      throw new SimpleOrderedMapException('Key does not exist');
+    }
+    return $index;
+  }
+
+  /**
+   * Adds a new key/value pair at the list of keys, error on duplicate key.
+   * @param mixed $key
+   * @param mixed $value
+   * @throws SimpleOrderedMapException
+   * @return $this
+   */
+  public function add($key, $value) {
+    if ($this->exists($key)) {
+      throw new SimpleOrderedMapException('Key already exists');
+    }
+    $this->keys[] = $key;
+    $this->values[] = $value;
+    return $this;
   }
 
   /**

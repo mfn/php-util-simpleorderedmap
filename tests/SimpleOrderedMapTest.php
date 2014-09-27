@@ -22,20 +22,13 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-/**
- * @author Markus Fischer <markus@fischer.name>
- */
-namespace Mfn\Util;
-class SimpleMapTest extends \PHPUnit_Framework_TestCase
-{
+namespace Mfn\Util\Map;
+
+class SimpleOrderedMapTest extends \PHPUnit_Framework_TestCase {
   /**
    * @var SimpleOrderedMap
    */
   private $map = NULL;
-
-  protected function setUp() {
-    $this->map = new SimpleOrderedMap();
-  }
 
   public function testEmptyMap() {
     $this->assertSame([], $this->map->keys());
@@ -44,7 +37,7 @@ class SimpleMapTest extends \PHPUnit_Framework_TestCase
   }
 
   /**
-   * @expectedException \Mfn\Util\SimpleOrderedMapException
+   * @expectedException \Mfn\Util\Map\SimpleOrderedMapException
    * @expectedExceptionMessage Key does not exist
    */
   public function testNonExistingKey() {
@@ -211,8 +204,8 @@ class SimpleMapTest extends \PHPUnit_Framework_TestCase
 
   public function testCreateFromHash() {
     $this->map = SimpleOrderedMap::fromHash([
-      'a' => true,
-      2 => NULL,
+      'a'  => true,
+      2    => NULL,
       NULL => false,
     ]);
     # NULL keys get converted to an empty string
@@ -230,7 +223,7 @@ class SimpleMapTest extends \PHPUnit_Framework_TestCase
   }
 
   /**
-   * @expectedException \Mfn\Util\SimpleOrderedMapException
+   * @expectedException \Mfn\Util\Map\SimpleOrderedMapException
    * @expectedExceptionMessage Key already exists
    */
   public function testMultipleAdd() {
@@ -238,6 +231,7 @@ class SimpleMapTest extends \PHPUnit_Framework_TestCase
     $this->map->add($obj, 'obj');
     $this->map->add($obj, 'obj');
   }
+
   public function testMultipleSet() {
     $obj = new \stdClass();
     $this->map->set($obj, 'obj1');
@@ -245,5 +239,9 @@ class SimpleMapTest extends \PHPUnit_Framework_TestCase
     $this->assertSame([$obj], $this->map->keys());
     $this->assertSame(['obj2'], $this->map->values());
     $this->assertSame(1, $this->map->count());
+  }
+
+  protected function setUp() {
+    $this->map = new SimpleOrderedMap();
   }
 }

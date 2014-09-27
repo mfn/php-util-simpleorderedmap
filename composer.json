@@ -23,7 +23,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Mfn\\Util\\": "lib/"
+            "Mfn\\Util\\Map\\": "lib/"
         }
     },
     "require-dev": {
