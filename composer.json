@@ -1,7 +1,7 @@
 {
     "name": "mfn/util-simpleorderedmap",
     "description": "Ordered map accepting arbitrary keys",
-    "type": "ibrary",
+    "type": "library",
     "keywords": [
         "utility",
         "map"
